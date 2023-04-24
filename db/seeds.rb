@@ -1,6 +1,6 @@
 Admin.create!(
-  email: 'piyo@maru', ## 任意のメールアドレス,
-  password: 'qwertyu' ## 任意のパスワード
+  email: 'piyo@maru',## 任意のメールアドレス,
+  password: 'qwertyu'## 任意のパスワード
 )
 
 # This file should contain all the record creation needed to seed the database with its default values.
