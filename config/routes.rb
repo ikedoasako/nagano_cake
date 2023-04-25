@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get 'items/new'
     get 'items/show'
     get 'items/edit'
-    get 'homes/top'
+    root to: 'homes#top'
   end
   
   scope module: :public do
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     get 'cart_items/index'
     get 'customers/show'
     get 'customers/edit'
-    get 'homes/top'
+    root to: 'homes#top'
     get 'homes/about'
     get 'items/index'
     get 'items/show'
