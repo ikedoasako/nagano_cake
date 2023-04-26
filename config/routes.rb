@@ -8,9 +8,9 @@ Rails.application.routes.draw do
     get 'items/new'
     get 'items/show'
     get 'items/edit'
-    root to: 'homes#top'
+    get 'homes/top'
   end
-  
+
   scope module: :public do
     get 'orders/new'
     get 'orders/index'
