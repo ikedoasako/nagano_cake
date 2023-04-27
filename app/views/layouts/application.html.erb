@@ -24,7 +24,7 @@
         <%= link_to "注文履歴一覧", admin_root_path %>
         <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
       <% else %>
-      <!--ログインしていない場合-->
+      <!--ログインしていなかったら-->
         <%= link_to "About", homes_about_path %>
         <%= link_to "商品一覧", items_index_path %>
         <%= link_to "新規登録", new_customer_registration_path %>
