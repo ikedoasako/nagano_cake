@@ -1,4 +1,6 @@
 class Admin::HomesController < ApplicationController
+  
   def top
-  end
+    @items = Item.page(params[:item])end
+
 end

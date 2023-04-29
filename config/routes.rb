@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  
   namespace :admin do
+    get "/admin" => "homes#top"
     get 'orders/show'
     get 'customers/index'
     get 'customers/show'
@@ -8,18 +10,14 @@ Rails.application.routes.draw do
     get 'items/new'
     get 'items/show'
     get 'items/edit'
-    get 'homes/top'
   end
 
   scope module: :public do
-    get 'orders/new'
-    get 'orders/index'
-    get 'orders/show'
-    get 'cart_items/index'
-    get 'customers/show'
-    get 'customers/edit'
     root to: 'homes#top'
-    get 'homes/about'
+    get "/home/about" => "homes#about", as: "about"
+    resources :orders
+    resources :cart_items
+    get 'customers/edit'
     get 'items/index'
     get 'items/show'
   end
