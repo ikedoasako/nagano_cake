@@ -16,7 +16,7 @@
       <!--顧客がログインしていたら-->
         <%= link_to "マイページ", customers_show_path %>
         <%= link_to "商品一覧", items_index_path %>
-        <%= link_to "カート", cart_items_index_path %>
+        <%= link_to "カート", cart_items_path %>
         <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
       <% elsif admin_signed_in? %>
       <!--管理者がログインしていたら-->

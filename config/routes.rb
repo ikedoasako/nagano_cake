@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   namespace :admin do
     get "/admin" => "homes#top"
     get 'orders/show'
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     get "/home/about" => "homes#about", as: "about"
     resources :orders
     resources :cart_items
+    get 'customers/show'
     get 'customers/edit'
     get 'items/index'
     get 'items/show'
