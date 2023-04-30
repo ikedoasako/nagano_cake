@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     get "admin/customers/:id/edit" => "customers#edit"
     get "admin/customers/:id" => "customers#update"
     get "admin/orders/:id" => "orders#show"
-    resources :admin_items
+    resources :items
   end
 
   scope module: :public do
@@ -29,12 +29,12 @@ Rails.application.routes.draw do
     get "customers/information" => "customer#update"
     get "customers/unsubscribed" => "customer#unsubscribed"
     get "customers/withdraw" => "customer#withdraw"
+    resources :orders, only: [:new, :create, :index, :show]
     get "orders/confirm" => "orders#confirm"
-    get "orders" => "orders#create"
-    get "orders" => "orders#index"
-    get "orders/:id" => "orders#show"
-    resources :cart_items
-    resources :items
+    get "orders/completion" => "orders#completion"
+    resources :cart_items, only: [:index, :update, :create, :destroy]
+    delete 'cart_items/destroy_all'
+    resources :items, only: [:index, :show]
   end
 
 
