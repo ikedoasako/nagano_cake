@@ -5,11 +5,11 @@ class Public::CustomersController < ApplicationController
   end
 
   def edit
-    @customer = Customer.find(params[:id])
-    redirect_to customer_path(@customer.id)
+    @customer = current_customer
   end
 
   def update
+    @customer = current_customer
   end
 
   def unsubscribed
