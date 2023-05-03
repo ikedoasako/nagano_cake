@@ -1,2 +1,10 @@
-<h1>Public::Customers#edit</h1>
-<p>Find me in app/views/public/customers/edit.html.erb</p>
+<div class="container mt-5">
+<h3>会員情報編集</h3>
+  <div class= "row" >
+    <div class= "col-3">
+      <%= form_with model: @customer do |f| %>
+        <%= f.text_field :last_name %>
+        <%= f.text_field :first_name %>
+    </div>
+  </div>
+</div>
