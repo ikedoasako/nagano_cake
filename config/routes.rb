@@ -26,9 +26,9 @@ Rails.application.routes.draw do
     get "/home/about" => "homes#about", as: "about"
     get "customers/my_page" => "customers#show"
     get "customers/information/edit" => "customers#edit"
-    patch "customers/information" => "customer#update"
-    get "customers/unsubscribed" => "customer#unsubscribed"
-    get "customers/withdraw" => "customer#withdraw"
+    patch "customers/information" => "customers#update"
+    get "customers/unsubscribed" => "customers#unsubscribed"
+    get "customers/withdraw" => "customers#withdraw"
     resources :orders, only: [:new, :create, :index, :show]
     get "orders/confirm" => "orders#confirm"
     get "orders/completion" => "orders#completion"

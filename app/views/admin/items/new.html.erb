@@ -1,2 +1,11 @@
-<h1>Admin::Items#new</h1>
-<p>Find me in app/views/admin/items/new.html.erb</p>
+<div class="container mt-5">
+  <h1>商品新規登録</h1>
+  <%= form_with model:  do |f| %>
+  <div class="row">
+    <div class="form_group">
+      <h4>商品画像</h4>
+      <%=  %>
+    </div>
+  </div>
+  <% end %>
+</div>

@@ -35,11 +35,11 @@
             <li class= "mx-2">
               <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-outline-secondary" %>
             </li>
-              
+
             <% elsif admin_signed_in? %>
             <!--管理者がログインしていたら-->
             <li class= "mx-2">
-              <%= link_to "商品一覧", admin_admin_path, class: "btn btn-outline-info" %>
+              <%= link_to "商品一覧", admin_items_path, class: "btn btn-outline-info" %>
             </li>
             <li class= "mx-2">
               <%= link_to "会員一覧", admin_admin_customers_path, class: "btn btn-outline-info" %>
@@ -50,7 +50,7 @@
             <li class= "mx-2">
               <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-info" %>
             </li>
-              
+
             <% else %>
             <!--ログインしていなかったら-->
             <li class= "mx-2">

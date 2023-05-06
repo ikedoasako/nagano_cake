@@ -1,3 +1,4 @@
+<p id="notice"><%= flash[:notice] %></p>
 <div class="container mt-5">
 <h3>会員情報編集</h3><br />
   <div class="row">
@@ -35,7 +36,7 @@
         <tr>
           <td></td>
           <td><%= f.submit "編集内容を保存", class: "btn btn-success" %></td>
-          <td><%= f.submit "退会する", class: "btn btn-danger" %></td>
+          <td><%= link_to "退会する", customers_unsubscribed_path, class: "btn btn-danger" %></td>
         </tr>
       </tbody>
     </table>
