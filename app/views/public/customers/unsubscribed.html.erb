@@ -1,6 +1,15 @@
-<div class="container">
+<div class="container mt-5">
+  <strong>本当に退会しますか？</strong>
+  <p></p>
+  <p><strong>退会</strong>すると、<strong>会員登録情報や</strong><br>
+  これまでの<strong>購入履歴</strong>が<strong>閲覧</strong>できなくなります。<br>
+  <strong>退会</strong>する<strong>場合</strong>は、「<strong>退会</strong>する」をクリックしてください。</p><br />
   <div class="row">
-    <h1>退会確認画面</h1>
-    
+    <div class="col mx-5">
+      <%= link_to "退会しない", customers_my_page_path, class: "btn btn-primary" %>
+      <%= link_to customers_withdraw_path, method: :patch, class: "btn btn-danger" do %>
+      退会する
+      <% end %>
+    </div>
   </div>
 </div>

@@ -1,9 +1,10 @@
 class Admin::ItemsController < ApplicationController
   
-  def index
+  def new
+    @items = 
   end
 
-  def new
+  def index
   end
 
   def show

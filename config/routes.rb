@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     get "admin/customers/:id" => "customers#update"
     get "admin/orders/:id" => "orders#show"
     resources :items
+    
   end
 
   scope module: :public do
@@ -28,7 +29,7 @@ Rails.application.routes.draw do
     get "customers/information/edit" => "customers#edit"
     patch "customers/information" => "customers#update"
     get "customers/unsubscribed" => "customers#unsubscribed"
-    get "customers/withdraw" => "customers#withdraw"
+    patch "customers/withdraw" => "customers#withdraw"
     resources :orders, only: [:new, :create, :index, :show]
     get "orders/confirm" => "orders#confirm"
     get "orders/completion" => "orders#completion"
