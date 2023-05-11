@@ -1,10 +1,27 @@
 <div class="container mt-5">
-  <h1>商品新規登録</h1>
-  <%= form_with model:  do |f| %>
+  <h4>商品新規登録</h4>
+  <%= form_with model: @items, url: admin_items_path do |f| %>
   <div class="row">
-    <div class="form_group">
-      <h4>商品画像</h4>
-      <%=  %>
+    <div class= col-md-5>
+      <div class="form_group">
+        <h6>商品画像</h6>
+        <%= f.file_field :image, accept: "image/*", placeholder: "ファイルを選択" %>
+      </div>
+      <div class="form_group">
+        <h6>商品名</h6>
+        <%= f.text_field :name, placeholder: "商品名" %>
+      </div>
+      <div class="form_group">
+        <h6>商品説明</h6>
+        <%= f.text_area :introduction, placeholder: "説明文を記述" %>
+      </div>
+      <div class="form_group">
+        <h6>税抜価格</h6>
+        <%= f.text_field :price, placeholder: "1000" %>
+        円
+      </div>
+      <br />
+      <%= f.submit '新規登録', class: "btn btn-success" %>
     </div>
   </div>
   <% end %>
