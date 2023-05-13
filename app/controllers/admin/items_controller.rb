@@ -11,13 +11,18 @@ class Admin::ItemsController < ApplicationController
     redirect_to admin_item_path(@items.id)
   end
 
-  def index
+  def show
+    @items = Item.all
+    @item = Item.find(params[:id])
   end
 
-  def show
+  def index
+    @items = Item.page(params[:page])
   end
 
   def edit
+    @item = Item.find(params[:id])
+    redirect_to admin_item_path(@items.id)
   end
 
   def update

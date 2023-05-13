@@ -1,2 +1,17 @@
-<h1>Admin::Items#show</h1>
-<p>Find me in app/views/admin/items/show.html.erb</p>
+<div class="container mt-5">
+  <h4>商品詳細</h4>
+  <div class="row">
+    <table class="table">
+      <tbody>
+      <% @items.each do |item| %>
+        <tr>
+          <td><%= image_tag @item.get_image(80,80) %><br>
+              <%= link_to @item.name, admin_item_path(@item.id) %>
+          </td>
+          <td></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
