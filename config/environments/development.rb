@@ -53,7 +53,7 @@ Rails.application.configure do
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
 
-  #エラーの回避の設定
+  #エラーの回避の設定追記
   config.active_job.queue_adapter = :inline
 
   # Debug mode disables concatenation and preprocessing of assets.
