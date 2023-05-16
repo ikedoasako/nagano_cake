@@ -1,8 +1,21 @@
 <div class="container mt-5">
+  <h3>商品一覧</h3>
   <div class="row">
-  <h1>商品一覧</h1>
-  
-  
+  <% @items.each do |item| %>
+    <div class= "mx-auto">
+      <p><%= link_to item_path(item.id) do %>
+         <%= image_tag item.get_image(150,150) %>
+         <% end %>
+      </p><br>
+      <p><%= item.name %></p><br>
+      <p><%= item.price %></p>
+    </div>
+  <% end %>
+  </div>
+  <div class="row">
+    <div class= "mx-auto">
+    <%= paginate @items %>
+    </div>
   </div>
 </div>
 
