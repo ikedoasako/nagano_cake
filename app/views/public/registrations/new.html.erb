@@ -1,8 +1,9 @@
 <div class="container mt-5">
-  <%= form_with(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%#= form_with(resource, as: resource_name, url: registration_path) do |f| %>
+  <%= form_with model: @customer, url: customer_registration_path, method: :post do |f| %>
     <%= render "public/shared/error_messages", resource: resource %>
     <h4>新規会員登録</h4><br />
-    
+
     <div class="row">
       <div class="col-3">
         <%= f.label "氏名" %>
@@ -16,7 +17,7 @@
         <%= f.text_field :first_name %>
       </div>
     </div>
-    
+
     <div class="row">
       <div class="col-3">
         <%= f.label "フリガナ" %>
