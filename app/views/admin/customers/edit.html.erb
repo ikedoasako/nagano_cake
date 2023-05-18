@@ -1,2 +1,39 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
+<div class="container mt-5">
+  <%= form_with model: @customer, url: customer_registration_path, method: :patch do |f| %>
+  <div class="row">
+    <div class="col-md-3">
+      <p>会員ID</p>
+      <P>氏名</P>
+      <p>フリガナ</p>
+      <p>郵便番号</p>
+      <P>住所</P>
+      <p>電話番号</p>
+      <p>メールアドレス</p>
+      <p>会員ステータス</p>
+    </div>
+    <div class="col-md3 offset-1">
+      <P><%= @customer.id %></P>
+      <p><%= f.text_field :last_name %></p>
+      <p><%= f.text_field :last_name_kana %></p>
+      <p><%= f.text_field :postal_code %></p>
+      <p><%= f.text_field :address %></p>
+      <p><%= f.text_field :telephone_number %></p>
+      <p><%= f.email_field :email %></p>
+      <p class="text-secondary font-weight-bold">
+        <% if @customer.is_deleted %>
+        退会
+      </p>
+        <% else %>
+      <p class="text-success font-weight-bold">
+        有効
+        <% end %>
+      </p>
+    </div>
+    <div class="col-md-5">
+      <%= link_to "編集する", admin_edit_path(@customer.id), class: "btn btn-success" %>
+    </div>
+    <div class="col-md-5">
+      <%= link_to "注文履歴一覧を見る", orders_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>

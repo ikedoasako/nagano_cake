@@ -15,8 +15,8 @@ Rails.application.routes.draw do
     get "/admin" => "homes#top"
     get "admin/customers" => "customers#index"
     get "admin/customers/:id" => "customers#show"
-    get "admin/customers/:id/edit" => "customers#edit"
-    get "admin/customers/:id" => "customers#update"
+    get "admin/customers/:id/edit" => "customers#edit", as: 'edit'
+    patch "admin/customers/:id" => "customers#update"
     get "admin/orders/:id" => "orders#show"
     resources :items
     
