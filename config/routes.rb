@@ -12,27 +12,27 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    get "/admin" => "homes#top"
-    get "admin/customers" => "customers#index"
-    get "admin/customers/:id" => "customers#show"
-    get "admin/customers/:id/edit" => "customers#edit", as: 'edit'
-    patch "admin/customers/:id" => "customers#update"
-    get "admin/orders/:id" => "orders#show"
+    get "/" => "homes#top"
+    get "/customers" => "customers#index"
+    get "/customers/:id" => "customers#show", as: 'show'
+    get "/customers/:id/edit" => "customers#edit", as: 'edit'
+    patch "/customers/:id" => "customers#update", as: 'update'
+    get "/orders/:id" => "orders#show", as: 'orders'
     resources :items
-    
+
   end
 
   scope module: :public do
     root to: 'homes#top'
-    get "/home/about" => "homes#about", as: "about"
-    get "customers/my_page" => "customers#show"
-    get "customers/information/edit" => "customers#edit"
-    patch "customers/information" => "customers#update"
-    get "customers/unsubscribed" => "customers#unsubscribed"
-    patch "customers/withdraw" => "customers#withdraw"
+    get '/home/about' => "homes#about", as: 'about'
+    get 'customers/my_page' => 'customers#show'
+    get 'customers/information/edit' => 'customers#edit'
+    patch 'customers/information' => 'customers#update'
+    get 'customers/unsubscribed' => 'customers#unsubscribed'
+    patch 'customers/withdraw' => 'customers#withdraw'
     resources :orders, only: [:new, :create, :index, :show]
-    get "orders/confirm" => "orders#confirm"
-    get "orders/completion" => "orders#completion"
+    post 'orders/confirm' => 'orders#confirm'
+    get 'orders/completion' => 'orders#completion'
     resources :cart_items, only: [:index, :update, :create, :destroy]
     delete 'cart_items/destroy_all'
     resources :items, only: [:index, :show]

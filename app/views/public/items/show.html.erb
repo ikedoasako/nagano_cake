@@ -8,5 +8,16 @@
       <P><%= @item.introduction %></P>
       <p>¥<%= @item.price%>(税込)</p>
     </div>
+    <div class="col-md-3">
+    <%= form_with model: @cart_items, url: cart_items_path do |f| %>
+      <div class="form_group">
+        <p><%= f.hidden_field :cart_items, :value => "item_id" %></p>
+      </div>
+      <div class="form_group">
+        <p><%= f.select :amount, *[1..10] %></p>
+        <p><%= f.submit "カートに入れる", class: "btn btn-success" %></p>
+      </div>
+    </div>
+    <% end %>
   </div>
 </div>
