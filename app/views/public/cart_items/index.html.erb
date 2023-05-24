@@ -16,22 +16,31 @@
       <tbody>
       <% @cart_items.each do |cart_item| %>
         <tr>
-          <%= form_with model: @cart_item, url: cart_items_path do |f| %>
           <td><%= image_tag cart_item.item.get_image(150,150) %>
               <%= cart_item.item.name %>
           </td>
           <td><%= cart_item.item.with_tax_price %></td>
+          <%= form_with model: cart_item, url: cart_item_path(cart_item.id), method: :patch do |f| %>
           <td><%= f.select :amount, *[1..10] %>
-              <%= link_to "変更", cart_item_path(cart_item.id), method: :patch, class: "btn btn-success" %>
+              <%= f.submit "変更", class: "btn btn-success" %>
           </td>
+          <% end %>
           <td><%= cart_item.item.with_tax_price * cart_item.amount %></td>
           <td><%= link_to "削除する", cart_item_path(cart_item.id), method: :delete, class: "btn btn-danger" %></td>
           <% @sum += cart_item.item.with_tax_price * cart_item.amount %>
-          <% end %>
         </tr>
         <% end %>
       </tbody>
-      
     </table>
+  </div>
+  <div class="row">
+    <div class="col-md-5 offset-md-1">
+      <%= link_to "買い物を続ける", root_path, class: "btn btn-primary"%>
+    </div>
+    <div class="col-md-2 offset-md-3">合計金額</div>
+    <%= @sum %>
+    <div class="col-md-7 offset-md-5">
+      <%= link_to "情報入力に進む", new_order_path, class: "btn btn-success"%>
+    </div>
   </div>
 </div>

@@ -20,5 +20,10 @@ class Item < ApplicationRecord
   def subtotal
     item.with_tax_price * amount
   end
+  
+  ##カートの合計の算出
+  def total_price
+    items.sum("quantity*price")
+  end
 
 end
