@@ -23,7 +23,7 @@ class Item < ApplicationRecord
   
   ##カートの合計の算出
   def total_price
-    items.sum("quantity*price")
+    items.sum(amount * price)
   end
 
 end
