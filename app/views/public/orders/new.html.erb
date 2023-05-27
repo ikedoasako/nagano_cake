@@ -1,2 +1,18 @@
-<h1>Public::Orders#new</h1>
-<p>Find me in app/views/public/orders/new.html.erb</p>
+<div class="container mt-5">
+  <div class="row">
+  <%= form_with model: @order, url: orders_confirm_path, method: :post do |f| %>
+    <strong>支払方法</strong>
+      <p></p>
+      <p><%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+    <%#= f.radio_button :プロパティ名, "フォームで送る値" %>
+    <%#= f.radio_button :payment_method, "credit_card" %>
+        <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %></p>
+    <%#= f.label :プロパティ名, "表示する値" %>
+    <%#= f.label :payment_method_credit_card, "クレジットカード" %>
+    
+      <p><%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+    <%#= f.radio_button :payment_method, "transfer" %>
+        <%= f.label :payment_method_transfer, Order.payment_methods_i18n[:transfer] %></p>
+    <%#= f.label :payment_method_transfer, "銀行振込" %>
+    <strong>お届け先</strong>
+  <% end %>

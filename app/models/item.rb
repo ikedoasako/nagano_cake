@@ -16,11 +16,6 @@ class Item < ApplicationRecord
     (price * 1.1).floor
   end
   
-  ## 小計を求めるメソッド
-  def subtotal
-    item.with_tax_price * amount
-  end
-  
   ##カートの合計の算出
   def total_price
     items.sum(amount * price)

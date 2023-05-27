@@ -1,0 +1,8 @@
+ ja: #日本語の設定を行う
+    enums: # enumの設定を行う
+      order: #モデル名(orderに対して)
+        payment_method: #カラム名(payment_methodに対して)
+          credit_card: "クレジットカード" #enumで0と紐づけた要素(credit_card)
+          transfer: "銀行振込" #enumで1と紐づけた要素
+          #要素の数だけ追加する
+          #この記述で0と1が日本語化されるようになる=> "クレジットカード"
