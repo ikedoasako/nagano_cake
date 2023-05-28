@@ -8,4 +8,9 @@ class CartItem < ApplicationRecord
     item.with_tax_price * amount
   end
   
+  ##カートの合計の算出
+  def total_price
+    items.sum(amount * price)
+  end
+  
 end
