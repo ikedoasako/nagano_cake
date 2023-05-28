@@ -5,19 +5,17 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
-    binding.pry
+    #binding.pry
     @order = Order.new(order_params)
     @order.payment_method = params[:order][:payment_method]
-    @order.shipping_cost = 800
+    @order.shipping_cost = 800 #送料の金額指定
     @cart_items = current_customer.cart_items
-    @sum = 0
-    @order = 
-    @order.postal_code = current_customer.postal_code
-    @order.address = current_customer.address
-    @order.name = current_customer.first_name + current_customer.last_name
+    @sum = 0 #0からスタートして足されていく
+    @order.save
   end
 
   def completion
+    @order = current_customer.order
   end
 
   def index
