@@ -9,9 +9,14 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.payment_method = params[:order][:payment_method]
     @order.shipping_cost = 800 #送料の金額指定
-    @cart_items = current_customer.cart_items
     @sum = 0 #0からスタートして足されていく
-    @order.save
+    
+    @order.postal_code = current_customer.postal_code
+    @order.address = current_customer.address
+    @order.name = current_customer.last_name + current_customer.first_name
+    
+    @cart_items = current_customer.cart_items #カート内商品の情報を取得
+    @order_new = Order.new #hidden_fieldを作るのに使う
   end
 
   def completion
@@ -19,12 +24,19 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @order_details = OrderDetail.new
+    @order_details.order_id = order.id
+    @order_details.item_id = cart_item.item.id
   end
 
   def show
   end
 
   def create
+    @order = Order.new(order_params)
+    @cart_items = current_customer.cart_items.all
+    @order.save
+    render :completion
   end
 
   private

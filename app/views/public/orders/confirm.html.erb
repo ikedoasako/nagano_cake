@@ -28,6 +28,8 @@
     </div>
     <div class="col-md-3">
       <table class="table table-bordered">
+      <%= form_with model: @order, url: orders_path, method: :post do |f| %>
+        <%= f.hidden_field :order, :value => @curent_customer %>
         <thead>
           <tr>
             <th>送料</th>
@@ -49,17 +51,19 @@
   </div>
   <div class="row-md-3 auto">
     <strong>支払方法</strong>
-      <%= @order.payment_method %>
+      <%= @order.payment_method_i18n %>
   </div>
   <p></p>
   <div class="row-md-3 -auto">
     <strong>お届け先</strong>
-      <%= "〒#{current_customer.postal_code}"%>
-      <%= "#{current_customer.address}"%>
-      <%= current_customer.last_name + current_customer.first_name %>
+      〒
+      <%= @order.postal_code %>
+      <%= @order.address %>
+      <%= @order.name %>
   </div>
   <p></p>
   <div class="row-md-6 offset-4">
-    <%= link_to"注文を確定する", orders_completion_path, class: "btn btn-success" %>
+    <%= f.submit "注文を確定する", class: "btn btn-success" %>
   </div>
+    <% end %>
 </div>
