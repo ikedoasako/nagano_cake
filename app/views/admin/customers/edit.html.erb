@@ -19,6 +19,11 @@
       <p><%= f.text_field :address %></p>
       <p><%= f.text_field :telephone_number %></p>
       <p><%= f.email_field :email %></p>
+      <p><%= f.radio_button :is_deleted, @customer.is_deleted, null: false %>
+         有効
+         <%= f.radio_button :is_deleted, @customer.is_deleted, null: true %>
+         退会
+      </p>
       <P></P><br />
       <%= f.submit "変更を保存", class: "btn btn-success" %>
     </div>

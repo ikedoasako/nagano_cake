@@ -20,11 +20,10 @@ class Public::OrdersController < ApplicationController
   end
 
 
-  def completion
+  def completion #ページ表示するだけ
   end
 
   def create
-    binding.pry
     order = Order.new(order_params)
     order.save
     @cart_items = current_customer.cart_items.all
@@ -35,6 +34,7 @@ class Public::OrdersController < ApplicationController
     @order_detail.price = cart_item.item.with_tax_price
     @order_detail.amount = cart_item.amount
     @order_detail.save
+    #binding.pry
 
     end
 
