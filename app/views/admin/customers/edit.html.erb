@@ -1,7 +1,9 @@
 <div class="container mt-5">
+  <h4><%= @customer.last_name + @customer.first_name %>さんの会員情報編集</h4>
   <%= form_with model: @customer, url: admin_update_path(@customer.id), method: :patch do |f| %>
   <div class="row">
-    <div class="col-md-2 offset-1">
+
+    <div class="col-mx-2 md-3">
       <p>会員ID</p>
       <P>氏名</P>
       <p>フリガナ</p>
@@ -11,7 +13,8 @@
       <p>メールアドレス</p>
       <p>会員ステータス</p>
     </div>
-    <div class="col-md-3">
+
+    <div class="col-mx-2 md-3 offset-1 control-label">
       <P><%= @customer.id %></P>
       <p><%= f.text_field :last_name %></p>
       <p><%= f.text_field :last_name_kana %></p>
@@ -19,14 +22,15 @@
       <p><%= f.text_field :address %></p>
       <p><%= f.text_field :telephone_number %></p>
       <p><%= f.email_field :email %></p>
-      <p><%= f.radio_button :is_deleted, @customer.is_deleted, null: false %>
-         有効
-         <%= f.radio_button :is_deleted, @customer.is_deleted, null: true %>
-         退会
+      <p><%= f.radio_button :is_deleted, false %>
+         <%= f.label :is_deleted,  "有効", value: :false %>
+         <%= f.radio_button :is_deleted, true %>
+         <%= f.label :is_deleted, "退会", value: :true %>
       </p>
       <P></P><br />
       <%= f.submit "変更を保存", class: "btn btn-success" %>
     </div>
+
     <div class="col-md-6">
       <p></p><br>
       <p><%= f.text_field :first_name %></p>
