@@ -3,38 +3,55 @@
   <%= form_with model: @customer, url: admin_update_path(@customer.id), method: :patch do |f| %>
   <div class="row">
 
-    <div class="col-mx-2 md-3">
-      <p>会員ID</p>
-      <P>氏名</P>
-      <p>フリガナ</p>
-      <p>郵便番号</p>
-      <P>住所</P>
-      <p>電話番号</p>
-      <p>メールアドレス</p>
-      <p>会員ステータス</p>
+    <div class="form-group col-md-10">
+      <%= f.label :"会員ID", class: "col-md-3" %>
+      <%= @customer.id %>
     </div>
 
-    <div class="col-mx-2 md-3 offset-1 control-label">
-      <P><%= @customer.id %></P>
-      <p><%= f.text_field :last_name %></p>
-      <p><%= f.text_field :last_name_kana %></p>
-      <p><%= f.text_field :postal_code %></p>
-      <p><%= f.text_field :address %></p>
-      <p><%= f.text_field :telephone_number %></p>
-      <p><%= f.email_field :email %></p>
-      <p><%= f.radio_button :is_deleted, false %>
-         <%= f.label :is_deleted,  "有効", value: :false %>
-         <%= f.radio_button :is_deleted, true %>
-         <%= f.label :is_deleted, "退会", value: :true %>
-      </p>
-      <P></P><br />
+    <div class="form-group col-md-10">
+      <%= f.label "氏名", class: "col-md-3" %>
+      <%= f.text_field :last_name %>
+      <%= f.text_field :first_name %>
+    </div>
+
+    <div class="form-group col-md-10">
+      <%= f.label "フリガナ", class: "col-md-3" %>
+      <%= f.text_field :last_name_kana %>
+      <%= f.text_field :first_name_kana %>
+    </div>
+
+    <div class="form-group col-md-10">
+      <%= f.label "郵便番号", class: "col-md-3" %>
+      <%= f.text_field :postal_code %>
+    </div>
+
+    <div class="form-group col-md-10">
+      <%= f.label "住所", class: "col-md-3" %>
+      <%= f.text_field :address %>
+    </div>
+
+    <div class="form-group col-md-10">
+      <%= f.label "電話番号", class: "col-md-3" %>
+      <%= f.text_field :telephone_number %>
+    </div>
+
+    <div class="form-group col-md-10">
+      <%= f.label "メールアドレス", class: "col-md-3" %>
+      <%= f.email_field :email %>
+    </div>
+
+    <div class="form-group col-md-10">
+      <%= f.label "会員ステータス", class: "col-md-3" %>
+      <%= f.radio_button :is_deleted, false %>
+      <%= f.label :is_deleted,  "有効", value: :false %>
+      <%= f.radio_button :is_deleted, true %>
+      <%= f.label :is_deleted, "退会", value: :true %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-10 offset-3">
       <%= f.submit "変更を保存", class: "btn btn-success" %>
-    </div>
-
-    <div class="col-md-6">
-      <p></p><br>
-      <p><%= f.text_field :first_name %></p>
-      <p><%= f.text_field :first_name_kana %></p>
     </div>
   </div>
   <% end %>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <header>
     <title>Nagano Cake</title>
     <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
     <%= csrf_meta_tags %>
@@ -8,7 +8,7 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  </header>
    <body class="d-flex flex-column vh-100">
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
@@ -23,16 +23,19 @@
             <ul class="navbar-nav ml-auto">
             <% if customer_signed_in? %>
             <!--顧客がログインしていたら-->
-            <li class= "mx-2">
+            <li class="mx-4">
+              ようこそ<%= current_customer.last_name %>さん！
+            </li>
+            <li class="mx-2">
               <%= link_to "マイページ", customers_my_page_path, class: "btn btn-outline-secondary" %>
             </li>
-            <li class= "mx-2">
+            <li class="mx-2">
               <%= link_to "商品一覧", items_path, class: "btn btn-outline-secondary" %>
             </li>
-            <li class= "mx-2">
+            <li class="mx-2">
               <%= link_to "カート", cart_items_path, class: "btn btn-outline-secondary" %>
             </li>
-            <li class= "mx-2">
+            <li class="mx-2">
               <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-outline-secondary" %>
             </li>
 
