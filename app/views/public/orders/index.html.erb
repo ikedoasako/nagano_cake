@@ -1,4 +1,5 @@
 <div class="container mt-5">
+  <h4>注文履歴詳細</h4>
   <div class="row">
     <table class="table table-striped table-bordered">
       <thead>
@@ -18,12 +19,14 @@
               <%= order.address %>
               <%= order.name %>
           </td>
-          <% order.order_details.each do |order_detail| %>
-          <td><%= order_detail.item.name %></td>
-        <% end %>
+          <td class="align-middle" style="word-break:break-all">
+            <% order.order_details.each do |order_detail| %>
+            <%= order_detail.item.name %><br>
+            <% end %>
+          </td>
           <td>¥<%= order.total_payment %></td>
           <td><%= link_to "表示する", order_path(order), class: "btn btn-primary" %></td>
-          <% end %>
+        <% end %>
         </tr>
       </tbody>
     </table>

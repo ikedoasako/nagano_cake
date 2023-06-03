@@ -10,7 +10,7 @@
       </p>
       <p>
         <strong class="col-md-2">注文日</strong>
-        <%= @order.created_at %>
+        <%= @order.created_at.strftime('%Y/%m/%d') %>
       </p>
       <p>
         <strong class="col-md-2">配送先</strong>

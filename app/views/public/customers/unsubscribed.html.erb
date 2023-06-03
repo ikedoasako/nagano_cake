@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col mx-5">
       <%= link_to "退会しない", customers_my_page_path, class: "btn btn-primary" %>
-      <%= link_to customers_withdraw_path, method: :patch, class: "btn btn-danger" do %>
+      <%= link_to customers_withdraw_path, method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger" do %>
       退会する
       <% end %>
     </div>

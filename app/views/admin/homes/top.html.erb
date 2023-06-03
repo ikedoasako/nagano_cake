@@ -14,7 +14,7 @@
         <% @orders.each do |order| %>
         <tr>
           <td><%= link_to admin_orders_path(order.id) do %>
-              <%= order.created_at %>
+              <%= order.created_at.strftime('%Y/%m/%d') %>
               <% end %>
           </td>
           <td><%= order.customer.last_name + order.customer.first_name %></td>
@@ -23,7 +23,11 @@
         <% end %>
       </tbody>
     </table>
+    </div>
   </div>
-  <%= paginate @orders %>
+  <div class="row">
+    <div class= "col-md-5 offset-5">
+    <%= paginate @orders %>
+    </div>
   </div>
 </div>
