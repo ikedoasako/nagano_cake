@@ -24,12 +24,15 @@
           <td><%= f.select :amount, *[1..10], { selected: cart_item.amount } %>
               <%= f.submit "変更", class: "btn btn-success" %>
           </td>
-          <% end %>
           <td><%= cart_item.item.with_tax_price * cart_item.amount %></td>
-          <td><%= link_to "削除する", cart_item_path(cart_item.id), method: :delete, class: "btn btn-danger" %></td>
           <% @sum += cart_item.item.with_tax_price * cart_item.amount %>
+      <% end %>
+          <td><%= link_to cart_item_path(cart_item.id), method: :delete do %>
+            <button class="btn btn-danger">削除する</button>
+              <% end %>
+          </td>
+          <% end %>
         </tr>
-        <% end %>
       </tbody>
     </table>
   </div>
