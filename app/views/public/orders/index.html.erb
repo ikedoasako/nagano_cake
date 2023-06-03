@@ -7,12 +7,25 @@
           <th>配送先</th>
           <th>注文商品</th>
           <th>支払金額</th>
-          <th>支払詳細</th>
-        </tr>
-        <tr>
-          <td></td>
+          <th>注文詳細</th>
         </tr>
       </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+          <td>〒<%= order.postal_code %>
+              <%= order.address %>
+              <%= order.name %>
+          </td>
+          <% order.order_details.each do |order_detail| %>
+          <td><%= order_detail.item.name %></td>
+        <% end %>
+          <td>¥<%= order.total_payment %></td>
+          <td><%= link_to "表示する", order_path(order), class: "btn btn-primary" %></td>
+          <% end %>
+        </tr>
+      </tbody>
     </table>
   </div>
 </div>

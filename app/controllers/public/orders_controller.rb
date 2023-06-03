@@ -46,10 +46,11 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all
-    @order = Order.new
-    @order_detail.order_id = order.id
-    @order_detail.item_id = cart_item.item.id
+    @orders = Order.where(customer_id: current_customer.id).order(created_at: :desc)
+    #@orders = Order.all
+    #@order = Order.new
+    #@order_detail.order_id = order.id
+    #@order_detail.item_id = cart_item.item.id
   end
 
   def show
