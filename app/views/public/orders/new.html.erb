@@ -1,4 +1,5 @@
 <div class="container mt-5">
+  <h4>注文情報入力</h4>
   <div class="row">
   <%= form_with model: @order, url: orders_confirm_path, method: :post do |f| %>
   <%#今回は情報入力した後確認画面に飛ぶためpostで送る情報はない。method: :postはなくても機能する%>
